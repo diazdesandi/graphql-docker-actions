@@ -41,6 +41,8 @@ jobs:
         with:
           push: true
           context: .
-          tags: diazdesandi/docker-graphql:latest, diazdesandi/docker-graphql:${{ steps.version.outputs.version }}
+          tags:  diazdesandi/docker-graphql:${{ steps.version.outputs.version }}, diazdesandi/docker-graphql:latest
           file: ./Dockerfile
           platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
